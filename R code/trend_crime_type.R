@@ -17,16 +17,15 @@ load("london_data.RData")
 #########################################################
 #########################################################
 
-antisoc.lpp <- antisocial.lpp
-plot(antisoc.lpp[[1]],col=1,pch=20,cex=2,main="")
+plot(antisocial.lpp[[1]],col=1,pch=20,cex=2,main="")
 
-n_antisoc <- length(antisoc.lpp)
+n_antisoc <- length(antisocial.lpp)
 
 
 #########################################################
 ######################################################### common bw
 #########################################################
-sigma <- as.vector(unlist(lapply(antisoc.lpp, bw.scott.iso)))
+sigma <- as.vector(unlist(lapply(antisocial.lpp, bw.scott.iso)))
 sigma1 <- exp(mean(log(sigma)))
 
 #########################################################
@@ -35,7 +34,7 @@ sigma1 <- exp(mean(log(sigma)))
 d_antisoc <- lapply(X=1:n_antisoc, function(i){
   # s <- bw.scott.iso(antisoc.lpp[[i]])
   # out <- density.lpp(antisoc.lpp[[i]],sigma=s,distance = "euclidean",positive=TRUE)
-  out <- density.lpp(antisoc.lpp[[i]],sigma=sigma1,distance = "euclidean",positive=TRUE)
+  out <- density.lpp(antisocial.lpp[[i]],sigma=sigma1,distance = "euclidean",positive=TRUE)
   raster(as.im(out))
 })
 
