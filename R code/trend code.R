@@ -114,6 +114,13 @@ acc_trend_pixels <- Which(acc_trend,cells=T)
 part_acc <- d_brick_deseason_agg[acc_trend_pixels]
 matplot(colMeans(part_acc),type = "l")
 
+
+########################################################## average behavior of not-deseasoned data in the detected pixels
+d_brick_agg <- aggregate(d_brick,fac=2)
+acc_trend_pixels <- Which(acc_trend,cells=T)
+part_1 <- d_brick_agg [acc_trend_pixels]
+matplot(colMeans(part_1),type = "l")
+
 #########################################################
 #########################################################
 ######################################################### Crime
@@ -224,6 +231,15 @@ crime_trend_pixels <- Which(crime_trend,cells=T)
 part_crime <- d_crime_brick_deseason_agg[crime_trend_pixels]
 matplot(colMeans(part_crime),type = "l")
 
+
+########################################################## average behavior of not-deseasoned data in the detected pixels
+d_crime_brick_agg <- aggregate(d_crime_brick,fac=2)
+crime_trend_pixels <- Which(crime_trend,cells=T)
+part_2 <- d_crime_brick_agg[crime_trend_pixels]
+matplot(colMeans(part_2),type = "l")
+
+
+
 #########################################################
 #########################################################
 ######################################################### relative risk
@@ -332,6 +348,13 @@ plot(r_trend)
 r_trend_pixels <- Which(r_trend,cells=T)
 part_r <- d_crime_brick_deseason_agg[r_trend_pixels]
 matplot(colMeans(part_r),type = "l")
+
+
+########################################################## average behavior of not-deseasoned data in the detected pixels
+r_brick_agg <- aggregate(r_brick,fac=2)
+r_trend_pixels <- Which(r_trend,cells=T)
+part_3 <- r_brick_agg[r_trend_pixels]
+matplot(colMeans(part_3),type = "l")
 
 ##########################################################
 ##########################################################
