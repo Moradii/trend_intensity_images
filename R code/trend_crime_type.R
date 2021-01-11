@@ -373,9 +373,9 @@ North <- list("SpatialPolygonsRescale", layout.north.arrow(type=1),
 
 ## Combined PACF Plot
 trend_detected <- stack(pacf.antisoc.image,pacf.shoplifting.image,pacf.drug.image, pacf.vehicle.image)
-names(trend_detected) <- c("Antisocial_Behaviour","Shoplifting","Drugs", "Vehicle_Crime")
+names(trend_detected) <- c("Antisocial_Behaviour","Shoplifting","Drug_related", "Vehicle_related")
 
-png("pacfcrimetype.png",width = 940, height = 340)
+png("pacfcrimetype.png",width = 940, height = 250)
 spplot(trend_detected,sp.layout=list(list(roads),North), colorkey=list(labels=list(cex=1.5)),
        col.regions = rev(topo.colors(20, alpha = 1)),
        scales=list(draw=T,cex=1.5),
@@ -385,9 +385,9 @@ dev.off()
 
 ## Combined Trend Plot
 trend_detected <- stack(antisoc_trend, shoplifting_trend, drug_trend, vehicle_trend)
-names(trend_detected) <- c("Antisocial_Behaviour","Shoplifting","Drugs", "Vehicle_Crime")
+names(trend_detected) <- c("Antisocial_Behaviour","Shoplifting","Drug_related", "Vehicle_related")
 
-png("trendcrimetype.png",width = 940, height = 340)
+png("trendcrimetype.png",width = 940, height = 250)
 spplot(trend_detected,sp.layout=list(list(roads),North), colorkey=list(labels=list(cex=1.5)),
        col.regions = rev(topo.colors(20, alpha = 1)),
        scales=list(draw=T,cex=1.5),
